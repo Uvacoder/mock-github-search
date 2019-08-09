@@ -23,9 +23,9 @@ class FetchUsersExample extends Component {
         
         const user_input = this.state.search_text
 
-        axios.get(`https://github.com/search?q=${user_input}&type=Users`, { crossdomain: true })
+        axios.get(`https://api.github.com/search/users?q=${user_input}}`, { crossdomain: true })
             .then(results => {
-            console.log(results)
+            console.log(results.data)
         })
     }
 
