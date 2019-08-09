@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import axios from "axios"
+import { UserDataList } from "../components/UserDataList";
 
 class FetchUsersExample extends Component {
 
@@ -23,18 +24,24 @@ class FetchUsersExample extends Component {
         
         const user_input = this.state.search_text
 
-        axios.get(`https://api.github.com/search/users?q=${user_input}}`, { crossdomain: true })
+        axios.get(`https://api.github.com/search/users?q=${user_input}`)
             .then(results => {
-            console.log(results.data)
+            // console.log("check",results.data.items)
+            // const my_data = JSON.stringify(results.data.items)
+            const {items} = results.data
+            if(items && items.length){
+                this.setState({users: items})
+                console.log("users", users)
+            } else {
+                console.log("no data")
+            }
+
         })
     }
 
     render () {
-        const { search_text } = this.state.search_text
         return (
             <div>
-
-                {/* Form where user enters input here */}
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Search GitHub users
@@ -48,11 +55,15 @@ class FetchUsersExample extends Component {
                     <button type="submit">Submit</button>
                 </form>
 
-                {/* Area where response is shown */}
                 <h1>Github api loads at run time</h1>
-                <div>
-                    { this.state.loading ? ( <p>Please hold...</p> ) : search_text ? ( <p>${search_text}</p> ) : (<p>Unable to fetch data...</p>) }
-                </div>
+                
+                {/* {console.log("yo",this.state.my_data)} */}
+                <UserDataList items={this.state.users} />
+                
+    
+                {/* <div>
+                    { this.state.my_data ? <p>{this.state.my_data}</p>: <p>please enter text</p> }
+                </div> */}
             </div>
         )
     }
