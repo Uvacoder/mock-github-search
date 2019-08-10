@@ -11,33 +11,18 @@ require("dotenv").config({
 module.exports = {
   plugins: [
     {
-        resolve: `gatsby-source-github-api`,
-        options: {
-          // token: required by the GitHub API
-          token: process.env.MY_ENV_VAR,
-          
-          // GraphQLquery: defaults to a search query
-        graphQLQuery: `{
-            search(query: "example", type: USER, first: 20) {
-              repositoryCount
-              edges {
-                node {
-                  ... on User {
-                    bio
-                    name
-                    login
-                    location
-                    avatarUrl
-                  }
-                }
-              }
-            }
-          }`
-          
-        //   // variables: defaults to variables needed for a search query
-        //   variables: someObject
-        }
-      }
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Mock GitHub Search Project`,
+        short_name: `YouMocky`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+        icon: `src/images/icon.jpg`
+      },
+    },
+    `gatsby-plugin-offline`
   ]
 };
 

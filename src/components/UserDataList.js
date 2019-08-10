@@ -1,20 +1,32 @@
-import React from "react"
-import { UserDataCard } from './UserDataCard'
+import React from 'react';
+import '../styles/styles.css';
 
-export const UserDataList = ({items=[]}) => {
-    console.log("here", items)
+export const UserDataList = ({items}) => {
+
+    const imgStyle = {
+        margin: '20px',
+        width: '50px',
+        height: '60px'
+      };
+
     return (
-    //    <div></div>
+        <table>
+            <tr>
+                <th>GitHub Profile Pic</th>
+                <th>GitHub Page</th>
+                <th>More Details (such as bio, follower count and more!)</th>
+            </tr>
 
-        <ul>
             {items.map(function(the_object, index) {
                 return (
-                
-                <li key={ index }>{the_object.login}</li>
+                    <tr>              
+                        <td key={ index } ><img src={the_object.avatar_url} alt="User" style={imgStyle}/></td>
+                        <td><a href={the_object.html_url} target='_blank'>{the_object.html_url}</a></td>
+                        <td><a href={the_object.url} target='_blank'>Learn more about me!!</a></td>
+                    </tr>
                 
                 )
             })}
-        </ul>
+        </table>
     )
   };
-
