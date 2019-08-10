@@ -1,5 +1,10 @@
-import React from "react"
+// import React from "react"
 
-export const UserDataCard = ({html_url}) => (
-    <div>{html_url}</div>  
-)
+// export const UserDataCard = ({items}) => {
+//   console.log("card", items)
+//   return (
+
+//     <div
+//     ></div>
+//   )
+// }
