@@ -4,27 +4,28 @@ import '../styles/styles.css';
 export const UserDataList = ({items}) => {
 
     const imgStyle = {
-        margin: '20px',
-        width: '50px',
-        height: '60px'
-      };
+        margin: 'auto',
+        width: '50%',
+        display: 'block',
+    };
 
     return (
-        <table>
-            <tr>
-                <th>GitHub Profile Pic</th>
-                <th>GitHub Page</th>
-                <th>More Details (such as bio, follower count and more!)</th>
-            </tr>
+        <table className='table is-bordered'>
+            <thead>
+                <tr>
+                    <th>GitHub Profile Pic</th>
+                    <th>GitHub Page</th>
+                    <th>More Details (such as bio, follower count and more!)</th>
+                </tr>
+            </thead>
 
             {items.map(function(the_object, index) {
                 return (
                     <tr>              
                         <td key={ index } ><img src={the_object.avatar_url} alt="User" style={imgStyle}/></td>
-                        <td><a href={the_object.html_url} target='_blank'>{the_object.html_url}</a></td>
-                        <td><a href={the_object.url} target='_blank'>Learn more about me!!</a></td>
-                    </tr>
-                
+                        <td><a href={the_object.html_url} target='_blank' rel='noopener noreferrer'>{the_object.html_url}</a></td>
+                        <td><a href={the_object.url} target='_blank' rel='noopener noreferrer'>Learn more about me!!</a></td>
+                    </tr> 
                 )
             })}
         </table>

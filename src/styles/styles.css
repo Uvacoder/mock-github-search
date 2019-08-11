@@ -1,26 +1,17 @@
+section:nth-child(2) {
+  margin: 2%;
+}
+
+form {
+  margin: auto;
+}
+
 table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
     width: 60%;
     margin: auto;
-    border: 3px solid #110101;
     padding: 10px;
   }
   
-  td, th {
-    border: 1px solid #110101;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-
-  ul {
-    list-style-type: none;
-   }
-   
   .pagination {
     display: inline-block;
   }
