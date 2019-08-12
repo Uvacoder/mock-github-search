@@ -4,6 +4,7 @@ import { UserDataList } from '../components/UserDataList';
 import Pagination from '../components/Pagination';
 import '../styles/my_styles.scss';
 import { FaUserCircle } from 'react-icons/fa';
+import { Helmet } from 'react-helmet'
 class FetchUsersExample extends Component {
 
     state = {
@@ -59,6 +60,16 @@ class FetchUsersExample extends Component {
     render () {
         const numberPages = Math.floor(this.state.totalResults / 20)
         return (
+            <Helmet>
+                <html lang='en' />
+                <title>Search GitHub Users</title> 
+                <meta name='author' content='Alicia Barrett'/>
+                <meta name="docsearch:version" content="2.0"/>
+                <meta
+                name="viewport"
+                content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover"
+                />
+            </Helmet>
             <div>    
                 {/* Content starts here */}
                 <section className='hero is-medium is-primary is-bold has-text-centered'>
