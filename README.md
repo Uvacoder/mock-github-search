@@ -1,6 +1,6 @@
 ## 🚀 Summary
 This repo includes my practice with GatsbyJS, React, Axios and GitHub's public API.
-
+-
 ## 📚 Resources used along the way
 
 - GitHub API [docs](https://developer.github.com/v3/search/)
